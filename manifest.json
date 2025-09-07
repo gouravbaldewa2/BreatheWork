@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "BreatheWork - Breathing Exercise App",
+  "version": "1.0.0",
+  "description": "A comprehensive breathing exercise Chrome extension with scientifically-backed techniques, audio features, and visual guides.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "BreatheWork - Start Breathing Exercise"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["sounds/*", "icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

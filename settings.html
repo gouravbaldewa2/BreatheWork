@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreatheWork - Settings</title>
+    <link rel="stylesheet" href="styles/settings.css">
+</head>
+<body>
+    <div class="settings-container">
+        <header class="settings-header">
+            <h1>⚙️ BreatheWork Settings</h1>
+            <button id="back-btn" class="back-btn">← Back</button>
+        </header>
+
+        <main class="settings-content">
+            <section class="settings-section">
+                <h2>Default Preferences</h2>
+                <div class="preference-group">
+                    <label class="preference-item">
+                        <span>Default Technique</span>
+                        <select id="default-technique">
+                            <option value="box">Box Breathing</option>
+                            <option value="478">4-7-8 Breathing</option>
+                            <option value="triangle">Triangle Breathing</option>
+                            <option value="wim-hof">Wim Hof Method</option>
+                            <option value="coherent">Coherent Breathing</option>
+                            <option value="bellows">Bellows Breathing</option>
+                            <option value="alternate">Alternate Nostril</option>
+                            <option value="extended">Extended Exhale</option>
+                        </select>
+                    </label>
+                    
+                    <label class="preference-item">
+                        <span>Default Session Goal</span>
+                        <select id="default-goal-type">
+                            <option value="breaths">Number of Breaths</option>
+                            <option value="duration">Duration</option>
+                        </select>
+                        <input type="number" id="default-goal-value" min="1" value="10">
+                    </label>
+                    
+                    <label class="preference-item">
+                        <span>Default Background Sound</span>
+                        <select id="default-sound">
+                            <option value="none">Silent</option>
+                            <option value="rain">Rain</option>
+                            <option value="ocean">Ocean</option>
+                            <option value="forest">Forest</option>
+                            <option value="pink-noise">Pink Noise</option>
+                            <option value="brown-noise">Brown Noise</option>
+                            <option value="white-noise">White Noise</option>
+                        </select>
+                    </label>
+                    
+                    <label class="preference-item">
+                        <span>Default Volume</span>
+                        <input type="range" id="default-volume" min="0" max="100" value="30">
+                        <span class="volume-display">30%</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h2>Interface Settings</h2>
+                <div class="preference-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="show-breath-instructions" checked>
+                        <span>Show breathing instructions during exercise</span>
+                    </label>
+                    
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="auto-start-sound" checked>
+                        <span>Auto-start background sounds</span>
+                    </label>
+                    
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="vibration-feedback">
+                        <span>Haptic feedback (if supported)</span>
+                    </label>
+                    
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="dark-mode">
+                        <span>Dark mode interface</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h2>Statistics & Data</h2>
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <h3 id="total-sessions-stat">0</h3>
+                        <p>Total Sessions</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="total-breaths-stat">0</h3>
+                        <p>Total Breaths</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="total-time-stat">0m</h3>
+                        <p>Total Time</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="streak-stat">0</h3>
+                        <p>Current Streak</p>
+                    </div>
+                </div>
+                
+                <div class="data-controls">
+                    <button id="export-data" class="secondary-btn">Export Statistics</button>
+                    <button id="reset-data" class="danger-btn">Reset All Data</button>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h2>About</h2>
+                <div class="about-info">
+                    <p><strong>BreatheWork</strong> v1.0.0</p>
+                    <p>A comprehensive breathing exercise Chrome extension designed to help you practice mindful breathing techniques based on scientific research.</p>
+                    <p>Developed with ❤️ for better mental health and wellness.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="settings-footer">
+            <button id="save-all-settings" class="primary-btn">Save All Settings</button>
+            <button id="reset-defaults" class="secondary-btn">Reset to Defaults</button>
+        </footer>
+    </div>
+
+    <script src="scripts/settings.js"></script>
+</body>
+</html>

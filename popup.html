@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreatheWork</title>
+    <link rel="stylesheet" href="styles/popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <div class="header">
+            <h1>🌬️ BreatheWork</h1>
+            <p>Take a moment to breathe</p>
+        </div>
+        
+        <div class="quick-start">
+            <h3>Quick Start</h3>
+            <div class="technique-buttons">
+                <button class="technique-btn" data-technique="box">Box Breathing</button>
+                <button class="technique-btn" data-technique="478">4-7-8 Breathing</button>
+                <button class="technique-btn" data-technique="triangle">Triangle Breathing</button>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button id="open-main" class="primary-btn">
+                🎯 Full Experience
+            </button>
+            <button id="open-settings" class="secondary-btn">
+                ⚙️ Settings
+            </button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="total-sessions">0</span>
+                <span class="stat-label">Sessions</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="total-breaths">0</span>
+                <span class="stat-label">Total Breaths</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts/popup.js"></script>
+</body>
+</html>

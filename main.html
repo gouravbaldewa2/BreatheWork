@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreatheWork - Breathing Exercise</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🌬️ BreatheWork</h1>
+            <div class="header-controls">
+                <button id="settings-btn" class="icon-btn" title="Settings">⚙️</button>
+                <button id="close-btn" class="icon-btn" title="Close">✕</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Technique Selection -->
+            <section class="technique-section" id="technique-section">
+                <h2>Choose Your Breathing Technique</h2>
+                <div class="techniques-grid">
+                    <div class="technique-card" data-technique="box">
+                        <h3>Box Breathing</h3>
+                        <p>4-4-4-4 pattern. Equal inhale, hold, exhale, hold.</p>
+                        <div class="technique-benefits">Reduces stress, improves focus</div>
+                    </div>
+                    <div class="technique-card" data-technique="478">
+                        <h3>4-7-8 Breathing</h3>
+                        <p>Inhale 4, hold 7, exhale 8. Natural relaxant.</p>
+                        <div class="technique-benefits">Promotes sleep, reduces anxiety</div>
+                    </div>
+                    <div class="technique-card" data-technique="triangle">
+                        <h3>Triangle Breathing</h3>
+                        <p>Equal inhale, hold, exhale in triangular pattern.</p>
+                        <div class="technique-benefits">Balances nervous system</div>
+                    </div>
+                    <div class="technique-card" data-technique="wim-hof">
+                        <h3>Wim Hof Method</h3>
+                        <p>30 power breaths followed by retention.</p>
+                        <div class="technique-benefits">Increases energy, cold resistance</div>
+                    </div>
+                    <div class="technique-card" data-technique="coherent">
+                        <h3>Coherent Breathing</h3>
+                        <p>5 seconds inhale, 5 seconds exhale.</p>
+                        <div class="technique-benefits">Heart rate variability</div>
+                    </div>
+                    <div class="technique-card" data-technique="bellows">
+                        <h3>Bellows Breathing</h3>
+                        <p>Rapid, energizing breath work.</p>
+                        <div class="technique-benefits">Increases alertness, energy</div>
+                    </div>
+                    <div class="technique-card" data-technique="alternate">
+                        <h3>Alternate Nostril</h3>
+                        <p>Balanced breathing through alternating nostrils.</p>
+                        <div class="technique-benefits">Mental clarity, balance</div>
+                    </div>
+                    <div class="technique-card" data-technique="extended">
+                        <h3>Extended Exhale</h3>
+                        <p>Longer exhale than inhale for relaxation.</p>
+                        <div class="technique-benefits">Activates parasympathetic system</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Breathing Exercise Interface -->
+            <section class="exercise-section" id="exercise-section" style="display: none;">
+                <!-- Exercise Header -->
+                <div class="exercise-header">
+                    <h2 id="current-technique-title">Box Breathing</h2>
+                    <button id="back-to-selection" class="back-btn">← Back to Techniques</button>
+                </div>
+
+                <!-- Breathing Visual Guide -->
+                <div class="breathing-visual">
+                    <div class="breathing-circle-container">
+                        <div class="breathing-circle" id="breathing-circle">
+                            <div class="circle-center">
+                                <div class="phase-text" id="phase-text">Get Ready</div>
+                                <div class="breath-count" id="breath-count">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase Timers -->
+                <div class="timers-section">
+                    <div class="timer-row">
+                        <div class="timer-box" id="inhale-timer">
+                            <div class="timer-label">Inhale</div>
+                            <div class="timer-value">0</div>
+                        </div>
+                        <div class="timer-box" id="hold1-timer" style="display: none;">
+                            <div class="timer-label">Hold</div>
+                            <div class="timer-value">0</div>
+                        </div>
+                        <div class="timer-box" id="exhale-timer">
+                            <div class="timer-label">Exhale</div>
+                            <div class="timer-value">0</div>
+                        </div>
+                        <div class="timer-box" id="hold2-timer" style="display: none;">
+                            <div class="timer-label">Hold</div>
+                            <div class="timer-value">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session Info -->
+                <div class="session-info">
+                    <div class="info-item">
+                        <span class="info-label">Session Time:</span>
+                        <span id="session-time">00:00</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Goal:</span>
+                        <span id="session-goal">10 breaths</span>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="exercise-controls">
+                    <button id="start-btn" class="control-btn primary">Start</button>
+                    <button id="pause-btn" class="control-btn secondary" style="display: none;">Pause</button>
+                    <button id="resume-btn" class="control-btn primary" style="display: none;">Resume</button>
+                    <button id="stop-btn" class="control-btn danger" style="display: none;">Stop</button>
+                    <button id="customize-btn" class="control-btn secondary">Customize</button>
+                </div>
+
+                <!-- Audio Controls -->
+                <div class="audio-section">
+                    <div class="audio-header">
+                        <h3>🎵 Background Sounds</h3>
+                        <div class="volume-control">
+                            <span>🔊</span>
+                            <input type="range" id="volume-slider" min="0" max="100" value="30">
+                        </div>
+                    </div>
+                    <div class="sound-options">
+                        <button class="sound-btn" data-sound="none">Silent</button>
+                        <button class="sound-btn active" data-sound="rain">Rain</button>
+                        <button class="sound-btn" data-sound="ocean">Ocean</button>
+                        <button class="sound-btn" data-sound="forest">Forest</button>
+                        <button class="sound-btn" data-sound="pink-noise">Pink Noise</button>
+                        <button class="sound-btn" data-sound="brown-noise">Brown Noise</button>
+                        <button class="sound-btn" data-sound="white-noise">White Noise</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Settings Modal -->
+        <div class="modal" id="settings-modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>⚙️ Settings</h2>
+                    <button class="close-modal">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="settings-section">
+                        <h3>Timing Customization</h3>
+                        <div class="timing-controls" id="timing-controls">
+                            <!-- Dynamic timing controls will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Session Goals</h3>
+                        <div class="goal-options">
+                            <label>
+                                <input type="radio" name="goal-type" value="breaths" checked>
+                                <span>Number of Breaths</span>
+                            </label>
+                            <input type="number" id="breath-goal" min="1" max="100" value="10">
+                        </div>
+                        <div class="goal-options">
+                            <label>
+                                <input type="radio" name="goal-type" value="duration">
+                                <span>Duration (minutes)</span>
+                            </label>
+                            <input type="number" id="duration-goal" min="1" max="60" value="5">
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Preferences</h3>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="auto-start-audio">
+                            <span>Auto-start background sounds</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="show-instructions" checked>
+                            <span>Show breathing instructions</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-settings" class="primary-btn">Save Settings</button>
+                    <button class="secondary-btn close-modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customize Modal -->
+        <div class="modal" id="customize-modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>🎯 Customize Session</h2>
+                    <button class="close-modal">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="customize-section">
+                        <h3 id="customize-technique-title">Box Breathing</h3>
+                        <div class="timing-inputs" id="customize-timing">
+                            <!-- Dynamic timing inputs will be inserted here -->
+                        </div>
+                    </div>
+                    <div class="customize-section">
+                        <h3>Session Goal</h3>
+                        <div class="goal-selector">
+                            <select id="goal-type-select">
+                                <option value="breaths">Number of Breaths</option>
+                                <option value="duration">Duration (minutes)</option>
+                            </select>
+                            <input type="number" id="goal-value" min="1" value="10">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="apply-customize" class="primary-btn">Apply & Start</button>
+                    <button class="secondary-btn close-modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio-player" loop style="display: none;"></audio>
+    
+    <script src="scripts/techniques.js"></script>
+    <script src="scripts/audio.js"></script>
+    <script src="scripts/breathing-engine.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
