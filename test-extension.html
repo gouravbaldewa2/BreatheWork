@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreatheWork Extension Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .test-section h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        .status {
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .status.pass { background: #c6f6d5; color: #22543d; }
+        .status.fail { background: #fed7d7; color: #742a2a; }
+        .status.warn { background: #fef5e7; color: #744210; }
+        code {
+            background-color: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .instructions {
+            background: #bee3f8;
+            border-left: 4px solid #3182ce;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌬️ BreatheWork Chrome Extension - Test Page</h1>
+    
+    <div class="instructions">
+        <h3>📋 Installation Instructions</h3>
+        <ol>
+            <li>Open Chrome and navigate to <code>chrome://extensions/</code></li>
+            <li>Enable <strong>Developer mode</strong> (toggle in top right)</li>
+            <li>Click <strong>"Load unpacked"</strong></li>
+            <li>Select the <code>/app</code> directory of this project</li>
+            <li>The BreatheWork extension should appear in your extensions list</li>
+            <li>Pin the extension to your toolbar for easy access</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h3>🔧 File Structure Verification</h3>
+        <p>The following files should be present in your <code>/app</code> directory:</p>
+        
+        <h4>Core Files:</h4>
+        <div class="status pass">✓ manifest.json</div>
+        <div class="status pass">✓ popup.html</div>
+        <div class="status pass">✓ main.html</div>
+        <div class="status pass">✓ settings.html</div>
+        <div class="status pass">✓ background.js</div>
+        
+        <h4>Styles:</h4>
+        <div class="status pass">✓ styles/popup.css</div>
+        <div class="status pass">✓ styles/main.css</div>
+        <div class="status pass">✓ styles/settings.css</div>
+        
+        <h4>Scripts:</h4>
+        <div class="status pass">✓ scripts/techniques.js</div>
+        <div class="status pass">✓ scripts/audio.js</div>
+        <div class="status pass">✓ scripts/breathing-engine.js</div>
+        <div class="status pass">✓ scripts/popup.js</div>
+        <div class="status pass">✓ scripts/main.js</div>
+        <div class="status pass">✓ scripts/settings.js</div>
+        
+        <h4>Directories:</h4>
+        <div class="status warn">⚠ icons/ (placeholder - needs actual PNG files)</div>
+        <div class="status pass">✓ sounds/ (procedural audio generation)</div>
+    </div>
+    
+    <div class="test-section">
+        <h3>🧪 Testing Checklist</h3>
+        <p>After installation, test these features:</p>
+        
+        <h4>Popup Interface:</h4>
+        <ul>
+            <li>Click extension icon to open popup</li>
+            <li>Try quick start buttons (Box, 4-7-8, Triangle)</li>
+            <li>Check statistics display</li>
+            <li>Test "Full Experience" and "Settings" buttons</li>
+        </ul>
+        
+        <h4>Main Application:</h4>
+        <ul>
+            <li>Select different breathing techniques</li>
+            <li>Start a breathing session</li>
+            <li>Verify breathing circle animation</li>
+            <li>Check timer displays for each phase</li>
+            <li>Test pause/resume functionality</li>
+            <li>Try different background sounds</li>
+            <li>Adjust volume slider</li>
+            <li>Test customize modal</li>
+        </ul>
+        
+        <h4>Settings Page:</h4>
+        <ul>
+            <li>Access settings from main app</li>
+            <li>Modify default preferences</li>
+            <li>Check statistics display</li>
+            <li>Test save functionality</li>
+            <li>Try export data feature</li>
+        </ul>
+    </div>
+    
+    <div class="test-section">
+        <h3>🎵 Audio Testing</h3>
+        <p>The extension uses procedural audio generation. Test each sound option:</p>
+        <ul>
+            <li><strong>Rain:</strong> Should sound like gentle rainfall</li>
+            <li><strong>Ocean:</strong> Wave-like patterns with low frequencies</li>
+            <li><strong>Forest:</strong> Gentle rustling and ambient sounds</li>
+            <li><strong>Pink Noise:</strong> Balanced frequency spectrum</li>
+            <li><strong>Brown Noise:</strong> Deep, low-frequency emphasis</li>
+            <li><strong>White Noise:</strong> Full spectrum static</li>
+        </ul>
+        <p><em>Note: Audio requires user interaction to start due to browser policies.</em></p>
+    </div>
+    
+    <div class="test-section">
+        <h3>⚠️ Known Issues</h3>
+        <ul>
+            <li><strong>Icons:</strong> Placeholder references in manifest - replace with actual PNG files for production</li>
+            <li><strong>Audio Context:</strong> May require user interaction before audio plays (browser security)</li>
+            <li><strong>Mobile:</strong> Optimized for desktop Chrome, mobile experience may vary</li>
+        </ul>
+    </div>
+    
+    <div class="test-section">
+        <h3>🚀 Production Checklist</h3>
+        <p>Before publishing to Chrome Web Store:</p>
+        <ul>
+            <li>Add actual icon files (16x16, 32x32, 48x48, 128x128 PNG)</li>
+            <li>Test in multiple Chrome versions</li>
+            <li>Verify all permissions are necessary</li>
+            <li>Review and update extension description</li>
+            <li>Test offline functionality</li>
+            <li>Validate all user flows</li>
+        </ul>
+    </div>
+    
+    <div class="test-section">
+        <h3>📊 Breathing Techniques Available</h3>
+        <ol>
+            <li><strong>Box Breathing:</strong> 4-4-4-4 pattern for stress reduction</li>
+            <li><strong>4-7-8 Breathing:</strong> Sleep-promoting technique</li>
+            <li><strong>Triangle Breathing:</strong> Balance and concentration</li>
+            <li><strong>Wim Hof Method:</strong> Energy boost and cold resistance</li>
+            <li><strong>Coherent Breathing:</strong> Heart rate variability improvement</li>
+            <li><strong>Bellows Breathing:</strong> Alertness and energy</li>
+            <li><strong>Alternate Nostril:</strong> Mental balance and focus</li>
+            <li><strong>Extended Exhale:</strong> Deep relaxation activation</li>
+        </ol>
+    </div>
+    
+    <footer style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #718096;">
+        <p>🌬️ <strong>BreatheWork</strong> v1.0.0 - Comprehensive Chrome Extension for Mindful Breathing</p>
+        <p>Made with ❤️ for better breathing and wellness</p>
+    </footer>
+</body>
+</html>
